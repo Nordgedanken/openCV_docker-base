@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     libjpeg62-turbo-dev \
     libtiff5-dev \
     libjasper-dev \
-    ibpng12-dev \
+    libpng12-dev \
     libatlas-base-dev \
     gfortran \
     python2.7-dev \
