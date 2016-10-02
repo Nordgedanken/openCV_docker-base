@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y \
     libatlas-base-dev \
     gfortran \
     python2.7-dev \
-    python2.7
+    python2.7 \
+    unzip
 
 # Install Open CV - Warning, this takes absolutely forever
 RUN mkdir -p ~/opencv cd ~/opencv && \
