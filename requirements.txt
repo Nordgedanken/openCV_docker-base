@@ -7,5 +7,5 @@ pymysql==0.7.2
 xlsxwriter==0.8.5
 numpy==1.11
 Pillow==3.2.0
-cv2==1.0
+opencv-python==3.1.0.3
 pytesseract==0.1
