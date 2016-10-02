@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 RUN apt-get update && apt-get install -y \ 
     cmake \
     build-essential \ 
-    wget \
+    git \
     pkg-config \
     libjpeg62-turbo-dev \
     libtiff5-dev \
@@ -18,18 +18,20 @@ RUN apt-get update && apt-get install -y \
     libatlas-base-dev \
     gfortran \
     python2.7-dev \
-    python2.7 \
-    unzip
+    python2.7
 
 # Install Open CV - Warning, this takes absolutely forever
-RUN mkdir -p ~/opencv cd ~/opencv && \
-    wget https://github.com/Itseez/opencv/archive/3.1.0.zip && \
-    unzip 3.1.0.zip && \
-    rm 3.1.0.zip && \
-    mv opencv-3.1.0 OpenCV && \
-    cd OpenCV && \
+RUN cd ~ && \
+    git clone https://github.com/Itseez/opencv.git && \
+    cd opencv && \
+    git checkout 3.1.0 && \
+    cd ~ && \
+    git clone https://github.com/Itseez/opencv_contrib.git && \
+    cd opencv_contrib && \
+    git checkout 3.1.0 && \
     mkdir build && \ 
     cd build && \
+    cd ~/opencv && \
     cmake \
     -D CMAKE_INSTALL_PREFIX=/usr/local \ 
     -D INSTALL_C_EXAMPLES=OFF \ 
@@ -39,7 +41,7 @@ RUN mkdir -p ~/opencv cd ~/opencv && \
     make -j4 && \
     make install && \ 
     ldconfig && \
-    cd ../.. && rm -R OpenCV 
+    cd ~ && rm -R opencv_contrib && rm -R opencv
 
 COPY requirements.txt /usr/src/app/
 RUN pip install --no-cache-dir -r requirements.txt
