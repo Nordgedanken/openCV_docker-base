@@ -29,9 +29,9 @@ RUN cd ~ && \
     git clone https://github.com/Itseez/opencv_contrib.git && \
     cd opencv_contrib && \
     git checkout 3.1.0 && \
+    cd ~/opencv && \ 
     mkdir build && \ 
     cd build && \
-    cd ~/opencv && \
     cmake \
     -D CMAKE_INSTALL_PREFIX=/usr/local \ 
     -D INSTALL_C_EXAMPLES=OFF \ 
