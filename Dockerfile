@@ -7,30 +7,18 @@ WORKDIR /usr/src/app
 
 # Various Python and C/build deps
 RUN apt-get update && apt-get install -y \ 
-    wget \
+    cmake \
     build-essential \ 
-    cmake \ 
-    git \
-    unzip \ 
+    wget \
     pkg-config \
-    python-dev \ 
-    python-opencv \ 
-    libopencv-dev \ 
-    libav-tools  \ 
-    libjpeg-dev \ 
-    libpng-dev \ 
-    libtiff-dev \ 
-    libjasper-dev \ 
-    libgtk2.0-dev \ 
-    python-numpy \ 
-    python-pycurl \ 
+    libjpeg8-dev \
+    libtiff4-dev \
+    libjasper-dev \
+    ibpng12-dev \
     libatlas-base-dev \
     gfortran \
-    webp \ 
-    python-opencv \ 
-    qt5-default \
-    libvtk6-dev \ 
-    zlib1g-dev 
+    python2.7-dev \
+    python2.7
 
 # Install Open CV - Warning, this takes absolutely forever
 RUN mkdir -p ~/opencv cd ~/opencv && \
@@ -42,13 +30,11 @@ RUN mkdir -p ~/opencv cd ~/opencv && \
     mkdir build && \ 
     cd build && \
     cmake \
-    -DWITH_QT=ON \ 
-    -DWITH_OPENGL=ON \ 
-    -DFORCE_VTK=ON \
-    -DWITH_TBB=ON \
-    -DWITH_GDAL=ON \
-    -DWITH_XINE=ON \
-    -DBUILD_EXAMPLES=ON .. && \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \ 
+    -D INSTALL_C_EXAMPLES=OFF \ 
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
+    -D BUILD_EXAMPLES=ON .. && \
     make -j4 && \
     make install && \ 
     ldconfig && \
