@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     pkg-config \
     libjpeg8-dev \
-    libtiff4-dev \
+    libtiff5-dev \
     libjasper-dev \
     ibpng12-dev \
     libatlas-base-dev \
