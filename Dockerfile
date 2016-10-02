@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \ 
     wget \
     pkg-config \
-    libjpeg8-dev \
+    libjpeg62-turbo-dev \
     libtiff5-dev \
     libjasper-dev \
     ibpng12-dev \
