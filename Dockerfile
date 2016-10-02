@@ -51,7 +51,8 @@ RUN mkdir -p ~/opencv cd ~/opencv && \
     -DBUILD_EXAMPLES=ON .. && \
     make -j4 && \
     make install && \ 
-    ldconfig
+    ldconfig && \
+    cd ../.. && rm -R OpenCV 
 
 COPY requirements.txt /usr/src/app/
 RUN pip install --no-cache-dir -r requirements.txt
