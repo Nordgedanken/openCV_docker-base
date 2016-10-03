@@ -7,32 +7,39 @@ WORKDIR /usr/src/app
 
 # Various Python and C/build deps
 RUN apt-get update && apt-get install -y \ 
-    cmake \
-    build-essential \ 
+    build-essential \
     git \
+    cmake \
+    libgtk2.0-dev \
     pkg-config \
-    libjpeg62-turbo-dev \
-    libtiff5-dev \
+    libavcodec-dev \
+    libavformat-dev \
+    libswscale-dev \
+    install \
+    python-dev \
+    python-numpy \
+    libtbb2 \
+    libtbb-dev \
+    libjpeg-dev \
+    libpng-dev \
+    libtiff-dev \
     libjasper-dev \
-    libpng12-dev \
-    libatlas-base-dev \
-    gfortran \
-    python2.7-dev \
-    python2.7
+    libdc1394-22-dev
 
 # Install Open CV - Warning, this takes absolutely forever
 RUN cd ~ && \
-    git clone https://github.com/Itseez/opencv.git && \
+    git clone https://github.com/opencv/opencv.git && \
     cd opencv && \
     git checkout 3.1.0 && \
     cd ~ && \
-    git clone https://github.com/Itseez/opencv_contrib.git && \
+    git clone https://github.com/opencv/opencv_contrib.git && \
     cd opencv_contrib && \
     git checkout 3.1.0 && \
     cd ~/opencv && \ 
     mkdir build && \ 
     cd build && \
     cmake \
+    -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \ 
     -D INSTALL_C_EXAMPLES=OFF \ 
     -D INSTALL_PYTHON_EXAMPLES=ON \
