@@ -46,8 +46,10 @@ RUN cd ~ && \
     -D BUILD_EXAMPLES=ON .. && \
     make -j4 && \
     make install && \ 
-    ldconfig && \
-    cd ~ && rm -R opencv_contrib && rm -R opencv
+    ldconfig
+    
+COPY lib/cv2.so /usr/local/lib/python2.7/dist-packages/
+RUN cd ~ && rm -R opencv_contrib && rm -R opencv
 
 COPY requirements.txt /usr/src/app/
 RUN pip install --no-cache-dir -r requirements.txt
