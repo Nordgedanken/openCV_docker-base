@@ -15,7 +15,6 @@ RUN apt-get update && apt-get install -y \
     libavcodec-dev \
     libavformat-dev \
     libswscale-dev \
-    install \
     python-dev \
     python-numpy \
     libtbb2 \
