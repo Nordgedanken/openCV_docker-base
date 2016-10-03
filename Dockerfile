@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     libavformat-dev \
     libswscale-dev \
     python-dev \
+    python-opencv \
     python-numpy \
     libtbb2 \
     libtbb-dev \
