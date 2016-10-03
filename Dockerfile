@@ -7,8 +7,4 @@ RUN apt-get update && apt-get install -y \
     python-dev \
     libopencv-dev \
     python-opencv \
-
-
-# COPY requirements.txt /usr/src/app/
-# RUN pip install --no-cache-dir -r requirements.txt
-# RUN echo 'export PYTHONPATH=/usr/local/lib/python2.7/site-packages' >> ~/.bashrc
+    && ln -s /usr/lib/python2.7/dist-packages/cv2.x86_64-linux-gnu.so /usr/lib/python2.7/dist-packages/cv2.so
