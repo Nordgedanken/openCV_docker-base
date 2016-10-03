@@ -49,8 +49,6 @@ RUN cd ~ && \
     make -j4 && \
     make install && \ 
     ldconfig
-    
-RUN cp ~/opencv/build/lib/cv2.so /usr/local/lib/python2.7/dist-packages/
 RUN cd ~ && rm -R opencv_contrib && rm -R opencv
 
 COPY requirements.txt /usr/src/app/
