@@ -53,6 +53,6 @@ RUN apt-get update && apt-get install -y \
 
 COPY requirements.txt /usr/src/app/
 RUN pip install --no-cache-dir -r requirements.txt
-echo 'export PYTHONPATH=/usr/local/lib/python2.7/site-packages' >> ~/.bashrc
+RUN echo 'export PYTHONPATH=/usr/local/lib/python2.7/site-packages' >> ~/.bashrc
 
 COPY . /usr/src/app 
