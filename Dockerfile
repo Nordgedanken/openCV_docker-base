@@ -2,9 +2,6 @@ FROM python:2.7
 
 MAINTAINER MTRNord <info@nordgedanken.de>
 
-RUN mkdir -p /usr/src/app 
-WORKDIR /usr/src/app 
-
 # Various Python and C/build deps
 RUN apt-get update && apt-get install -y \ 
     python-dev \
