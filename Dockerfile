@@ -45,5 +45,6 @@ RUN cd ~ && \
 
 COPY requirements.txt /usr/src/app/
 RUN pip install --no-cache-dir -r requirements.txt
+ENV PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
 COPY . /usr/src/app 
